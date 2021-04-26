@@ -1,0 +1,26 @@
+<div class="card mt-3">
+    <div class="card-header">
+      Books list
+    </div>
+    <div class="card-body">
+
+      <div>
+        <a class="btn-sm btn-success" routerLink = "add" routerLinkActive = "active">Add book</a>
+      </div>
+      <table class="table mt-3">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Author</th>
+          <th></th>
+        </tr>
+        <tr *ngFor = "let book of books | async">
+          <td>{{ book.id }}</td>
+          <td><a routerLink = "details/{{ book.id }}" routerLinkActive = "active">{{ book.title }}</a></td>
+          <td>{{ book.author }}</td>
+          <td><a class="btn-sm btn-danger" routerLink = "delete/{{ book.id }}" routerLinkActive = "active" >Delete</a>
+          | <a class="btn-sm btn-secondary" routerLink = "update/{{ book.id }}" routerLinkActive = "active">Update</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
